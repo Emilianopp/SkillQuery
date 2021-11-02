@@ -1,0 +1,15 @@
+@import "../master.scss";
+@import "bootstrap/scss/functions"; 
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+$primary:$secondary-blue;
+$yellow: $secondary-yellow;
+.container{
+    background-color: $primary;
+}
+.btn-primary{
+    color: black !important;
+    background-color: $yellow!important
+}
+@import "bootstrap/scss/bootstrap";
+
