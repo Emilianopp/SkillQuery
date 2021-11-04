@@ -4,12 +4,112 @@
 @import "bootstrap/scss/mixins";
 $primary:$secondary-blue;
 $yellow: $secondary-yellow;
-.container{
-    background-color: $primary;
+
+body{
+    background-color: $primary-blue !important;
+    background-image: url("../../assets/svg/bullseye-gradient.svg");
+    background-size: cover;
 }
-.btn-primary{
-    color: black !important;
-    background-color: $yellow!important
+
+// +++++++++ Container for Whole Application
+
+
+
+.container h1{
+
+    font-size: 4rem;
+    color: $primary-yellow;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    
 }
+
+
+// +++++++++ Container for Dropdown Menus
+.dropdown-container {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    // ++++++ Dropdown Buttons
+    .dropdown-toggle.btn-primary{
+
+        background-color: $primary-yellow;
+        border: solid 1px $primary-yellow;
+        color: $primary-blue;
+        font-family: 'Roboto Mono', monospace;
+        border-radius: 0;
+        padding: 1.5rem;
+        margin: 5rem;
+
+        transition: all 0.25s ease-in;
+    
+        &:hover{
+                background-color: white !important;
+                border: solid 1px white;
+                font-weight: bold;
+                padding: 2rem;
+        }
+
+        &:active{
+                background-color: white !important;
+                border: solid 1px white;
+                font-weight: bold;
+                padding: 2rem;
+        }
+
+        &:focus{
+            background-color: white !important;
+            border: solid 1px white;
+            font-weight: bold;
+            padding: 2rem;
+    }
+
+    }
+
+    // ++++++ Override Bootstrap "Show" Styling
+    .show{
+
+        .dropdown-toggle.btn-primary{
+
+            background-color: $primary-yellow;
+            border: solid 1px $primary-yellow;
+            color: $primary-blue;
+            font-family: 'Roboto Mono', monospace;
+            border-radius: 0;
+            margin: 5rem;
+    
+            &:hover{
+                background-color: white !important;
+                border: solid 1px white;
+                font-weight: bold;
+                padding: 2rem;
+            }
+
+            &:active{
+                background-color: white !important;
+                border: solid 1px white;
+                font-weight: bold;
+                padding: 2rem;
+            }
+
+            &:focus{
+                background-color: white !important;
+                border: solid 1px white;
+                padding: 2rem;
+                font-weight: bold;
+                box-shadow: none;
+            }
+
+        }
+    }
+   
+}
+
+
 @import "bootstrap/scss/bootstrap";
 

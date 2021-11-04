@@ -28,8 +28,8 @@ export default function Countries() {
   // Returns dropdown menu with fetched countries
   return (
     <>
-      <Dropdown id="countries" tittle="Select Country"  onSelect={handleSelect}>
-        <Dropdown.Toggle id="dropdown-basic">{selection}</Dropdown.Toggle>
+      <Dropdown id="countries" title="Select Country"  onSelect={handleSelect}>
+        <Dropdown.Toggle variant="primary" id="dropdown-basic">{selection}</Dropdown.Toggle>
         <Dropdown.Menu>
           {countries?.map((country) => (
             <Dropdown.Item eventKey = {country}> {country}</Dropdown.Item>
