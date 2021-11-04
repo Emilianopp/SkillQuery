@@ -32,7 +32,7 @@ export default function Countries() {
         <Dropdown.Toggle id="dropdown-basic">{selection}</Dropdown.Toggle>
         <Dropdown.Menu>
           {countries?.map((country) => (
-            <Dropdown.Item eventKey = {country}> {country}</Dropdown.Item>
+            <Dropdown.Item key = {country} eventKey = {country}> {country}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
