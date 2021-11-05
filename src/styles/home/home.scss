@@ -87,11 +87,14 @@ body{
 
         background-color: $primary-yellow;
         border-radius: 0;
+        min-width: 14.5rem;
 
         .dropdown-item{
             color: $primary-blue;
             background-color: $primary-yellow;
             font-family: 'Roboto Mono', monospace;
+            padding: 1rem;
+            text-align: center;
 
             &:hover{
                 background-color: white;
