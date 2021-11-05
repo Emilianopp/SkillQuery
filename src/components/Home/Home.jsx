@@ -11,7 +11,12 @@ export default function Home() {
        {/*} <Locations onChange={console.log("wasup")}/>
         <Roles /> */}
 
-        <h1> SkillQuery </h1>
+        <div class="title">
+
+          <h1>  &#10095;&#10070;&#10094; SkillQuery </h1>
+
+        </div>
+       
         <div class="dropdown-container">
           <TestDropdown/>
           <TestDropdown/>

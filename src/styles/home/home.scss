@@ -12,19 +12,29 @@ body{
 }
 
 // +++++++++ Container for Whole Application
+.container{
+
+    // ++++ SkillQuery title
+    .title h1{
+
+        font-size: 4rem;
+        color: $primary-yellow;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        display: flex;
+        justify-content: center; 
+        text-shadow: none;
+        transition: all 0.25s ease-in;
+        
+        &:hover{
+           transform: rotate(180);;
+        }
+    }
 
 
-
-.container h1{
-
-    font-size: 4rem;
-    color: $primary-yellow;
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: bold;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    
 }
 
 
@@ -67,9 +77,29 @@ body{
             border: solid 1px white;
             font-weight: bold;
             padding: 2rem;
-    }
+        }
 
     }
+
+    // ++++++ Dropdown Options
+
+    .dropdown-menu{
+
+        background-color: $primary-yellow;
+        border-radius: 0;
+
+        .dropdown-item{
+            color: $primary-blue;
+            background-color: $primary-yellow;
+            font-family: 'Roboto Mono', monospace;
+
+            &:hover{
+                background-color: white;
+                font-weight: bold;
+            }
+        }
+    }   
+
 
     // ++++++ Override Bootstrap "Show" Styling
     .show{
