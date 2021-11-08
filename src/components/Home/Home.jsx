@@ -3,15 +3,31 @@ import "styles/home/home.scss";
 import { Container } from "react-bootstrap";
 import Locations from "./api/country";
 import Roles from "./api/roles";
+
 import ProgrammingLanguages from "./api/plots";
+
 export default function Home() {
 
   return (
     <Container>
+
+        <div class="title">
+
+          <h1> &#9745; SkillQuery    </h1>
+
+        </div>
+       
+        <div class="dropdown-container">
+          <TestDropdown/>
+          <TestDropdown/>
+          <TestDropdown/>
+        </div>
+
+
         <Locations/>
         <Roles />
         <ProgrammingLanguages/>
-       
+
     </Container>
   );
 }
