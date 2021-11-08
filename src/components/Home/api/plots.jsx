@@ -20,12 +20,11 @@ export default function ProgrammingLanguages() {
   };
 
 
-
   return (
     <div>
       <Button onClick={handleClick}>submit</Button>
-      <Bar data={techs.counts} />
-      <Bar data={packages.counts} />
+      <Bar data={techs.counts} title = {`Programming Languages Used Across ${techs.numRoles} Postings`}/>
+      <Bar data={packages.counts} title = {`Programming Languages Used Across ${packages.numRoles} Postings`}/>
     </div>
   );
 }

@@ -16,11 +16,24 @@ function Bar(props) {
       dataFormat: 'json',
       dataSource: {
         "chart": {
-          "caption":"Technologies Used",
+          "caption":props.title,
           "xAxisName": "Technology",
           "order" : "asc",
           "theme": "fusion",
-          "updateAnimDuration": "0.4"
+          "updateAnimDuration": "0.4",
+          "plotGradientColor": "#003366",
+          "plotFillAngle": "0",
+          "plotFillAlpha": "60",
+          "plotFillRatio": "90,100",
+          "plotHoverEffect": "1",
+          "value": "1950000",
+          "HoverColor": "1",
+          "HoverAlpha": "1",
+          "bgColor": "#00bfff",
+          "bgAlpha": "75,75",
+          "divLineCOlor": "#323738",
+          "divLineAlpha": "20"
+
         },
         "data": props.data
       },
