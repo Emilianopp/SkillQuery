@@ -26,7 +26,7 @@ export default function Roles() {
         <Dropdown.Toggle id="dropdown-basic">{selection}</Dropdown.Toggle>
         <Dropdown.Menu>
           {roles?.map((role) => (
-            <Dropdown.Item eventKey = {role}> {role}</Dropdown.Item>
+            <Dropdown.Item key = {role} eventKey = {role}> {role}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>

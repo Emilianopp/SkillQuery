@@ -16,7 +16,7 @@ export default function Regions(props) {
   }, [props.country]);
   
     // Handles selection of country
-    const [selection, setSelection] = useState("Select Region");
+    const [selection, setSelection] = useState("All");
     const handleSelect=(e)=>{
       axios.post(`/set_region/${e}`)
       setSelection(e)
@@ -31,7 +31,7 @@ export default function Regions(props) {
           <Dropdown.Toggle id="dropdown-basic">{selection}</Dropdown.Toggle>
           <Dropdown.Menu>
             {regions?.map((region) => (
-              <Dropdown.Item eventKey = {region}> {region}</Dropdown.Item>
+              <Dropdown.Item key = {region} eventKey = {region}> {region}</Dropdown.Item>
             ))}
           </Dropdown.Menu>
         </Dropdown>
