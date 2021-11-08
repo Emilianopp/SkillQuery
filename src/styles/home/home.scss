@@ -2,12 +2,10 @@
 @import "bootstrap/scss/functions"; 
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
-$primary:$secondary-blue;
-$yellow: $secondary-yellow;
 
 body{
     background-color: $primary-blue !important;
-    background-image: url("../../assets/svg/bullseye-gradient.svg");
+    background-image: url("../../assets/svg/wavy-green.svg");
     background-size: cover;
 }
 
@@ -18,7 +16,7 @@ body{
     .title h1{
 
         font-size: 4rem;
-        color: $primary-yellow;
+        color: $main-primary;
         text-align: center;
         font-family: 'Roboto Mono', monospace;
         font-weight: bold;
@@ -48,35 +46,41 @@ body{
     // ++++++ Dropdown Buttons
     .dropdown-toggle.btn-primary{
 
-        background-color: $primary-yellow;
-        border: solid 1px $primary-yellow;
-        color: $primary-blue;
+        background-color: white;
+        border: solid 3px  $main-primary;
+        color: $main-primary;
         font-family: 'Roboto Mono', monospace;
-        border-radius: 0;
+        border-radius: 3rem;
         padding: 1.5rem;
         margin: 5rem;
 
         transition: all 0.25s ease-in;
     
         &:hover{
-                background-color: white !important;
-                border: solid 1px white;
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
                 font-weight: bold;
                 padding: 2rem;
+                color:white;
+                border-radius: 0;
         }
 
         &:active{
-                background-color: white !important;
-                border: solid 1px white;
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
                 font-weight: bold;
                 padding: 2rem;
+                color:white;
+                border-radius: 0;
         }
 
         &:focus{
-            background-color: white !important;
-            border: solid 1px white;
+            background-color: $main-primary !important;
+            border: solid 1px $main-primary;
             font-weight: bold;
             padding: 2rem;
+            color:white;
+            border-radius: 0;
         }
 
     }
@@ -85,19 +89,19 @@ body{
 
     .dropdown-menu{
 
-        background-color: $primary-yellow;
-        border-radius: 0;
-        min-width: 14.5rem;
+        background-color: $main-primary;
+        min-width: 15rem;
 
         .dropdown-item{
-            color: $primary-blue;
-            background-color: $primary-yellow;
+            color: white;
+            background-color: $main-primary;
             font-family: 'Roboto Mono', monospace;
             padding: 1rem;
             text-align: center;
 
             &:hover{
                 background-color: white;
+                color: $main-primary;
                 font-weight: bold;
             }
         }
@@ -109,30 +113,30 @@ body{
 
         .dropdown-toggle.btn-primary{
 
-            background-color: $primary-yellow;
-            border: solid 1px $primary-yellow;
-            color: $primary-blue;
+            background-color: $main-primary;
+            border: solid 1px $main-primary;
+            color: white;
             font-family: 'Roboto Mono', monospace;
             border-radius: 0;
             margin: 5rem;
     
             &:hover{
-                background-color: white !important;
-                border: solid 1px white;
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
                 font-weight: bold;
                 padding: 2rem;
             }
 
             &:active{
-                background-color: white !important;
-                border: solid 1px white;
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
                 font-weight: bold;
                 padding: 2rem;
             }
 
             &:focus{
-                background-color: white !important;
-                border: solid 1px white;
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
                 padding: 2rem;
                 font-weight: bold;
                 box-shadow: none;

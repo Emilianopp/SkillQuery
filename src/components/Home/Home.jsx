@@ -13,7 +13,7 @@ export default function Home() {
 
         <div class="title">
 
-          <h1>  &#10095;&#10070;&#10094; SkillQuery </h1>
+          <h1> &#9745; SkillQuery    </h1>
 
         </div>
        
