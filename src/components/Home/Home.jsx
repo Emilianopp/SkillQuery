@@ -18,15 +18,13 @@ export default function Home() {
         </div>
        
         <div class="dropdown-container">
-          <TestDropdown/>
-          <TestDropdown/>
-          <TestDropdown/>
-        </div>
-
 
         <Locations/>
         <Roles />
         <ProgrammingLanguages/>
+
+        </div>
+
 
     </Container>
   );

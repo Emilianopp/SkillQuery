@@ -3,7 +3,7 @@ import { React, useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import "styles/home/home.scss";
 
-export default function Regions(props) {
+export default function Regions({ country }) {
   
   const [regions, setRegion] = useState("Select Region");
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Regions(props) {
         setRegion(data);
       })
     ).catch(e => {console.log(e)});
-  }, [props.country]);
+  }, [country]);
   
     // Handles selection of country
     const [selection, setSelection] = useState("All");
@@ -21,7 +21,7 @@ export default function Regions(props) {
       axios.post(`/set_region/${e}`)
       setSelection(e)
     }
-  if (props.country !== "Select Country") {
+  if (country !== "Select Country") {
     return (
       <>
         <Dropdown

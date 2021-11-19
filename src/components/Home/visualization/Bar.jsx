@@ -42,8 +42,8 @@ function Bar(props) {
     return <ReactFC {...chartConfigs} />;
   }
   else{
-    console.log(props.data)
-    return <>hi</>
+
+    return <></>
   }
 }
 export default Bar;
