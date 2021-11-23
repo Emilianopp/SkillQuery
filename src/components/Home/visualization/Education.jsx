@@ -1,15 +1,33 @@
-import React from 'react'
+import FusionCharts from "fusioncharts";
+import charts from "fusioncharts/fusioncharts.charts";
+import ReactFusioncharts from "react-fusioncharts";
 
-export default function Education(props) {
-    if(props.data != 0){
+// fusion charts pie chart for visualization 
+// plots  education degree counts 
+export default function dataation({data}) {
+  console.log(data.length,'LLALALALALALZL')
+  if (data.length !== 0) {
+    
+    charts(FusionCharts);
+
+    const dataSource = {
+      chart: {
+        caption: "Android Distribution for our app",
+
+      },
+      data: [...data]  
+    };
     return (
-        <div>
-            {props.data}
-        </div>
-    )
+        <ReactFusioncharts
+          type="doughnut2d"
+          width="100%"
+          height="100%"
+          dataFormat="JSON"
+          dataSource={dataSource}
+        />
+      );
     }
-    else{
-
+  else{
     return(<></>)
-    }
+  }
 }
