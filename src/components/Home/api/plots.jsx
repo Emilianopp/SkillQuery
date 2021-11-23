@@ -3,48 +3,56 @@ import { Button } from "react-bootstrap";
 import Bar from "../visualization/Bar";
 import Education from "../visualization/Education";
 import Map from "../visualization/Map";
+
+// Async functiion for promises
+
+async function req(url, method) {
+  const response = await fetch(`/${url}`, { method: method });
+  const out = await response.json();
+
+  return out;
+}
+
 export default function ProgrammingLanguages() {
-  const [techs, setTechs] = useState({counts : 0});
-  const [packages, setPackages] = useState({counts : 0});
-  const [education, setEducation] = useState({counts : 0});
+  // use effect for visuzalizations
+  const [techs, setTechs] = useState({ counts: 0 });
+  const [packages, setPackages] = useState({ counts: 0 });
+  const [education, setEducation] = useState([]);
   const [map, setMap] = useState([]);
+  const [country, setCountry] = useState([]);
+
+  // On form submit api requests
   const handleClick = () => {
-    fetch("/tech").then((response) =>
-      response.json().then((data) => {
-        setTechs(data);
-      })
-    );
-    fetch("/packages").then((response) =>
-    response.json().then((data) => {
+    req("tech").then((data) => {
+      setTechs(data);
+    });
+    req("packages").then((data) => {
       setPackages(data);
-      })
-    );
-
-    fetch("/map").then((response) =>
-    response.json().then((data) => {
-      setMap(data);
-      })
-    );
-
-    fetch("/education").then((response) =>
-    response.json().then((data) => {
+    });
+    req("education").then((data) => {
       setEducation(data);
-      console.log("education", education)
-      })
-    );
-
-
-
+    });
+    req("map").then((data) => {
+      setMap(data);
+    });
+    req("get_country").then((data) => {
+      setCountry(data);
+    });
   };
-
 
   return (
     <div>
       <Button onClick={handleClick}>submit</Button>
-      <Bar data={techs.counts} title = {`Programming Languages Used Across ${techs.numRoles} Postings`}/>
-      <Bar data={packages.counts} title = {`Programming Languages Used Across ${packages.numRoles} Postings`}/>
-      <Map data = {map}/>
-      <Education data = {Education}/>
+      <Bar
+        data={techs.counts}
+        title={`Programming Languages Used Across ${techs.numRoles} Postings`}
+      />
+      <Bar
+        data={packages.counts}
+        title={`Programming Languages Used Across ${packages.numRoles} Postings`}
+      />
+      <Map data={map} country={country} />
+      <Education data={education} />
     </div>
   );
 }

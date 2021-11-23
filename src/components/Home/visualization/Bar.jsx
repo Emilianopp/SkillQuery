@@ -5,6 +5,8 @@ import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+// fusion bar chart 
+// utilized to plot packages, techs and ops 
 function Bar(props) {
   if( props.data !== 0){
     ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -38,7 +40,6 @@ function Bar(props) {
         "data": props.data
       },
     };
-    console.log(chartConfigs,"this is in bar")
     return <ReactFC {...chartConfigs} />;
   }
   else{

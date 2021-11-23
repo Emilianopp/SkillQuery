@@ -13,20 +13,25 @@ export default function Roles() {
       })
     );
   }, []);
-    // Handles selection of country
-    const [selection, setSelection] = useState("Select Role");
-    const handleSelect=(e)=>{
-      setSelection(e)
-      axios.post(`/role/${e}`).catch(error => { console.log(error)})
-    }
-  
+  // Handles selection of country
+  const [selection, setSelection] = useState("Select Role");
+  const handleSelect = (e) => {
+    setSelection(e);
+    axios.post(`/role/${e}`).catch((error) => {
+      console.log(error);
+    });
+  };
+
   return (
     <>
-      <Dropdown id="roles" tittle="Select role" onSelect = {handleSelect}>
+      <Dropdown id="roles" tittle="Select role" onSelect={handleSelect}>
         <Dropdown.Toggle id="dropdown-basic">{selection}</Dropdown.Toggle>
         <Dropdown.Menu>
           {roles?.map((role) => (
-            <Dropdown.Item key = {role} eventKey = {role}> {role}</Dropdown.Item>
+            <Dropdown.Item key={role} eventKey={role}>
+              {" "}
+              {role}
+            </Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>

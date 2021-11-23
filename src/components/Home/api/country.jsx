@@ -4,6 +4,13 @@ import "styles/home/home.scss";
 import Regions from "./region";
 import axios from "axios";
 
+async function req(url,method) {
+  const response = await fetch(`/${url}`,{method : method});
+  const out = await response.json();
+
+  return out;
+}
+
 export default function Countries() {
   const [countries, setCountry] = useState();
 
@@ -11,7 +18,6 @@ export default function Countries() {
   useEffect(() => {
     fetch("/country").then((response) =>
       response.json().then((data) => {
-        console.log({ data });
         setCountry(data);
       })
     );
@@ -20,9 +26,15 @@ export default function Countries() {
   // Handles selection of country
   const [selection, setSelection] = useState("Select Country");
   const handleSelect=(e)=>{
+    req(`set_country/${e}`,'POST')
     setSelection(e)
-    axios.post(`/set_country/${e}`)
   }
+
+  const [regions, setRegion] = useState("Select Region");
+  useEffect(() => {
+    
+    req(`region/${selection}`,'POST').then(data => {setRegion(data); console.log(data,"in request");})
+  }, [selection]);
 
 
 
@@ -33,11 +45,11 @@ export default function Countries() {
         <Dropdown.Toggle variant="primary" id="dropdown-basic">{selection}</Dropdown.Toggle>
         <Dropdown.Menu>
           {countries?.map((country) => (
-            <Dropdown.Item key = {country} eventKey = {country}> {country}</Dropdown.Item>
+            <Dropdown.Item key = {country.id} eventKey = {country}> {country}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <Regions country = {selection}/>
+      <Regions country = {selection} regions = {regions}/>
       </>
   );
 }
