@@ -17,6 +17,7 @@ export default function ProgrammingLanguages() {
   // use effect for visuzalizations
   const [techs, setTechs] = useState({ counts: 0 });
   const [packages, setPackages] = useState({ counts: 0 });
+  const [ops, setOps] = useState({ counts: 0 });
   const [education, setEducation] = useState([]);
   const [map, setMap] = useState([]);
   const [country, setCountry] = useState([]);
@@ -35,6 +36,9 @@ export default function ProgrammingLanguages() {
     req("map").then((data) => {
       setMap(data);
     });
+    req("ops").then((data) => {
+      setOps(data);
+    });
     req("get_country").then((data) => {
       setCountry(data);
     });
@@ -50,6 +54,10 @@ export default function ProgrammingLanguages() {
       <Bar
         data={packages.counts}
         title={`Programming Languages Used Across ${packages.numRoles} Postings`}
+      />
+      <Bar
+        data={ops.counts}
+        title={`Programming Languages Used Across ${ops.numRoles} Postings`}
       />
       <Map data={map} country={country} />
       <Education data={education} />
