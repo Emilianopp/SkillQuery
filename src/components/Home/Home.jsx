@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import Locations from "./api/country";
 import Roles from "./api/roles";
 
-import ProgrammingLanguages from "./api/plots";
+import Plots from "./api/plots";
 
 export default function Home() {
 
@@ -21,7 +21,7 @@ export default function Home() {
 
         <Locations/>
         <Roles />
-        <ProgrammingLanguages/>
+        <Plots/>
 
         </div>
 

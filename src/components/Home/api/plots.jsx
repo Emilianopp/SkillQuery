@@ -6,14 +6,22 @@ import Map from "../visualization/Map";
 
 // Async functiion for promises
 
+
+
 async function req(url, method) {
-  const response = await fetch(`/${url}`, { method: method });
+  const response = await fetch(`https://skillquery.herokuapp.com/${url}`, {
+    method: method,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+    credentials: 'include'
+  });
   const out = await response.json();
 
   return out;
 }
-
-export default function ProgrammingLanguages() {
+export default function Plots() {
   // use effect for visuzalizations
   const [techs, setTechs] = useState({ counts: 0 });
   const [packages, setPackages] = useState({ counts: 0 });
@@ -24,22 +32,22 @@ export default function ProgrammingLanguages() {
 
   // On form submit api requests
   const handleClick = () => {
-    req("tech").then((data) => {
+    req("tech",'GET').then((data) => {
       setTechs(data);
     });
-    req("packages").then((data) => {
+    req("packages",'GET').then((data) => {
       setPackages(data);
     });
-    req("education").then((data) => {
+    req("education",'GET').then((data) => {
       setEducation(data);
     });
-    req("map").then((data) => {
+    req("map",'GET').then((data) => {
       setMap(data);
     });
-    req("ops").then((data) => {
+    req("ops",'GET').then((data) => {
       setOps(data);
     });
-    req("get_country").then((data) => {
+    req("get_country",'GET').then((data) => {
       setCountry(data);
     });
   };

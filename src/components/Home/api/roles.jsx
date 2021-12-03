@@ -3,23 +3,34 @@ import { Dropdown } from "react-bootstrap";
 import "styles/home/home.scss";
 import axios from "axios";
 
+
+
+async function req(url, method) {
+  const response = await fetch(`https://skillquery.herokuapp.com/${url}`, {
+    method: method,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+    credentials: 'include'
+  });
+  const out = await response.json();
+
+  return out;
+}
 export default function Roles() {
   const [roles, setRole] = useState();
   useEffect(() => {
-    fetch("/role_dropdown").then((response) =>
-      response.json().then((data) => {
-        console.log({ data });
-        setRole(data);
-      })
-    );
+
+    req("role_dropdown").then((data) => {
+      setRole(data);
+    });
   }, []);
   // Handles selection of country
   const [selection, setSelection] = useState("Select Role");
   const handleSelect = (e) => {
     setSelection(e);
-    axios.post(`/role/${e}`).catch((error) => {
-      console.log(error);
-    });
+    req(`role/${e}`, "POST");
   };
 
   return (
