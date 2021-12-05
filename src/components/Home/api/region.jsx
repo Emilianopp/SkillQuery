@@ -18,16 +18,14 @@ async function req(url, method) {
   return out;
 }
 export default function Regions({ country, regions }) {
-  console.log(regions, "REGIOOOONS");
 
   // Handles selection of country
-  const [selection, setSelection] = useState("All");
+  const [selection, setSelection] = useState("Select Region");
   const handleSelect = (e) => {
     req(`set_region/${e}`, "POST");
     setSelection(e);
   };
   if (country !== "Select Country") {
-    console.log(regions);
     return (
       <>
         <Dropdown id="regions" tittle="Select region" onSelect={handleSelect}>

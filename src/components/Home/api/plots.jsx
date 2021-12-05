@@ -3,10 +3,8 @@ import { Button } from "react-bootstrap";
 import Bar from "../visualization/Bar";
 import Education from "../visualization/Education";
 import Map from "../visualization/Map";
-
+import "styles/country/country.scss";
 // Async functiion for promises
-
-
 
 async function req(url, method) {
   const response = await fetch(`https://skillquery.herokuapp.com/${url}`, {
@@ -15,46 +13,63 @@ async function req(url, method) {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    credentials: 'include'
+    credentials: "include",
   });
   const out = await response.json();
 
   return out;
 }
+
+
+
 export default function Plots() {
   // use effect for visuzalizations
   const [techs, setTechs] = useState({ counts: 0 });
   const [packages, setPackages] = useState({ counts: 0 });
   const [ops, setOps] = useState({ counts: 0 });
   const [education, setEducation] = useState([]);
-  const [map, setMap] = useState([]);
+  const [maps, setMaps] = useState([]);
   const [country, setCountry] = useState([]);
 
   // On form submit api requests
   const handleClick = () => {
-    req("tech",'GET').then((data) => {
+    req("tech", "GET").then((data) => {
       setTechs(data);
     });
-    req("packages",'GET').then((data) => {
+    req("packages", "GET").then((data) => {
       setPackages(data);
     });
-    req("education",'GET').then((data) => {
+    req("education", "GET").then((data) => {
       setEducation(data);
     });
-    req("map",'GET').then((data) => {
-      setMap(data);
-    });
-    req("ops",'GET').then((data) => {
-      setOps(data);
-    });
-    req("get_country",'GET').then((data) => {
+    req("get_country", "GET").then((data) => {
       setCountry(data);
+    });
+    req("map", "GET").then((data) => {
+      //  console.log(data)
+      setMaps(data);
+      console.log(maps, "MA[P");
+    });
+    req("ops", "GET").then((data) => {
+      setOps(data);
     });
   };
 
+
+  function submit(country, region, role) {
+    console.log(role);
+    return (
+      <div className="buttonContainer">
+        <Button className="button" onClick={handleClick}>
+          submit
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <Button onClick={handleClick}>submit</Button>
+      {submit("test","test",role)}
       <Bar
         data={techs.counts}
         title={`Programming Languages Used Across ${techs.numRoles} Postings`}
@@ -67,7 +82,7 @@ export default function Plots() {
         data={ops.counts}
         title={`Programming Languages Used Across ${ops.numRoles} Postings`}
       />
-      <Map data={map} country={country} />
+      <Map data={maps} country={country} />
       <Education data={education} />
     </div>
   );

@@ -23,7 +23,7 @@ function getMax(arr, prop) {
 export default function Map(props) {
   
   if (props.data.length !== 0) {
-    if (props.country[0] === "Canada") {
+    if (props.country === "Canada") {
 
       ReactFC.fcRoot(FusionCharts, FusionMaps, Canada, FusionTheme);
 
@@ -71,7 +71,7 @@ export default function Map(props) {
         </div>
       );
     }
-    if (props.country[0] === "US") {
+    if (props.country === "US") {
         ReactFC.fcRoot(FusionCharts, FusionMaps, USA, FusionTheme);
         console.log( [...props.data])
         let max = getMax(props.data, "value");
