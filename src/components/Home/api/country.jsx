@@ -18,7 +18,7 @@ async function req(url, method) {
   return out;
 }
 
-export default function Countries() {
+export default function Countries({sendRegionParent}) {
   const [countries, setCountry] = useState();
 
   // Fetches countries from API
@@ -40,7 +40,6 @@ export default function Countries() {
   useEffect(() => {
     req(`region/${selection}`, "POST").then((data) => {
       setRegion(data);
-      console.log(data, "in request");
     });
   }, [selection]);
 
@@ -60,7 +59,7 @@ export default function Countries() {
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <Regions country={selection} regions={regions} />
+      <Regions country={selection} regions={regions} sendRegionParent={sendRegionParent}/>
     </>
   );
 }

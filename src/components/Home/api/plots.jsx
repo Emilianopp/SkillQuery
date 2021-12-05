@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container, Col, Row } from "react-bootstrap";
 import Bar from "../visualization/Bar";
 import Education from "../visualization/Education";
 import Map from "../visualization/Map";
 import "styles/country/country.scss";
+import cookies from "js-cookies";
 // Async functiion for promises
 
 async function req(url, method) {
@@ -20,9 +21,7 @@ async function req(url, method) {
   return out;
 }
 
-
-
-export default function Plots() {
+export default function Plots({ role, region }) {
   // use effect for visuzalizations
   const [techs, setTechs] = useState({ counts: 0 });
   const [packages, setPackages] = useState({ counts: 0 });
@@ -46,44 +45,57 @@ export default function Plots() {
       setCountry(data);
     });
     req("map", "GET").then((data) => {
-      //  console.log(data)
       setMaps(data);
-      console.log(maps, "MA[P");
     });
     req("ops", "GET").then((data) => {
       setOps(data);
     });
   };
 
-
-  function submit(country, region, role) {
-    console.log(role);
+  if (role !== "" && region !== "") {
     return (
-      <div className="buttonContainer">
-        <Button className="button" onClick={handleClick}>
-          submit
-        </Button>
+      <div>
+        <div className="buttonContainer">
+          <Button className="button" onClick={handleClick}>
+            submit
+          </Button>
+        </div>
+        <Container className = "plotContainer">
+
+          <Row >
+           
+            <Col lg = {6} xs = {6}>
+              <Bar
+                data={techs.counts}
+                title={`Programming Languages Used Across ${techs.numRoles} Postings`}
+              />
+            </Col>
+            <Col lg = {6} xs = {6}>
+              <Bar
+                data={packages.counts}
+                title={`Packages Languages Used Across ${packages.numRoles} Postings`}
+              />
+            </Col>
+          </Row>
+
+          <Row >
+            <Col>
+              <Bar
+                data={ops.counts}
+                title={`Other Programs Languages Used Across ${ops.numRoles} Postings`}
+              />
+            </Col>
+            <Col>
+              <Education data={education} />
+            </Col>
+          </Row>
+          <Col className = "Map">
+            <Map data={maps} country={country} />
+            </Col>
+        </Container>
       </div>
     );
+  } else {
+    return null;
   }
-
-  return (
-    <div>
-      {submit("test","test",role)}
-      <Bar
-        data={techs.counts}
-        title={`Programming Languages Used Across ${techs.numRoles} Postings`}
-      />
-      <Bar
-        data={packages.counts}
-        title={`Programming Languages Used Across ${packages.numRoles} Postings`}
-      />
-      <Bar
-        data={ops.counts}
-        title={`Programming Languages Used Across ${ops.numRoles} Postings`}
-      />
-      <Map data={maps} country={country} />
-      <Education data={education} />
-    </div>
-  );
 }

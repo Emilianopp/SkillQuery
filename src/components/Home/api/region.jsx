@@ -17,13 +17,14 @@ async function req(url, method) {
 
   return out;
 }
-export default function Regions({ country, regions }) {
+export default function Regions({ country, regions ,sendRegionParent}) {
 
   // Handles selection of country
   const [selection, setSelection] = useState("Select Region");
   const handleSelect = (e) => {
     req(`set_region/${e}`, "POST");
     setSelection(e);
+    sendRegionParent(e)
   };
   if (country !== "Select Country") {
     return (

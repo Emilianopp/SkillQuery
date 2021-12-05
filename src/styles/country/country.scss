@@ -39,9 +39,12 @@ body{
 // +++++++++ Container for Dropdown Menus
 .buttonContainer {
 
-    display: flex;
-    justify-content: center;
-    position: relative;
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
 
     // ++++++ Dropdown Buttons
     .button{
@@ -149,7 +152,19 @@ body{
     }
    
 }
+.plotContainer{
+    background-color: white !important;
+    border-radius: 30px 0 0 30px;
+    padding-left: 40px;
+}
 
+.Map{
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
 
 @import "bootstrap/scss/bootstrap";
 

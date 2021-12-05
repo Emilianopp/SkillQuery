@@ -18,7 +18,7 @@ async function req(url, method) {
 
   return out;
 }
-export default function Roles() {
+export default function Roles({sendRoleParent}) {
   const [roles, setRole] = useState();
   useEffect(() => {
 
@@ -31,6 +31,7 @@ export default function Roles() {
   const handleSelect = (e) => {
     setSelection(e);
     req(`role/${e}`, "POST");
+    sendRoleParent(e)
   };
 
   return (

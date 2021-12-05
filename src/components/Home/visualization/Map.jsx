@@ -6,10 +6,7 @@ import Canada from "fusionmaps/maps/fusioncharts.canada";
 import USA from "fusionmaps/maps/fusioncharts.usa";
 import FusionCharts from "fusioncharts";
 
-
-
-
-// Max function for color coating 
+// Max function for color coating
 function getMax(arr, prop) {
   var max;
   for (var i = 0; i < arr.length; i++) {
@@ -21,14 +18,43 @@ function getMax(arr, prop) {
 
 // Maps for Canada and USA
 export default function Map(props) {
-  
   if (props.data.length !== 0) {
-    if (props.country === "Canada") {
+    let max = getMax(props.data, "value");
+    const sum = props.data.reduce((partial_sum, a) => partial_sum + a, 0);
+    let range = (max / sum).toString();
+    const colorrange = {
+      minvalue: "0",
 
+      code: "#FFFFFF",
+
+      gradient: "1",
+      color: [
+        {
+          minvalue: "1",
+          maxvalue: "5",
+          code: "#B3FFB3",
+        },
+        {
+          minvalue: "5",
+          maxvalue: "15",
+          code: "#66ff66",
+        },
+        {
+          minvalue: "15",
+          maxvalue: "30",
+          code: "#0CAA41",
+        },
+        {
+          minvalue: "30",
+          maxvalue: "50",
+          code: "#0CAA41",
+        },
+      ],
+    };
+
+    if (props.country === "Canada") {
       ReactFC.fcRoot(FusionCharts, FusionMaps, Canada, FusionTheme);
 
-
-      let max = getMax(props.data, "value");
       const colorrange = {
         minvalue: "0",
         code: "#FFE0B2",
@@ -36,16 +62,16 @@ export default function Map(props) {
         color: [
           {
             minvalue: "0",
-            maxvalue: max,
+            maxvalue: range,
             color: "#FFD74D",
           },
         ],
       };
-  
+
       // STEP 3 - Creating the JSON object to store the chart configurations
       const chartConfigs = {
         type: "maps/canada", // The chart type
-        width: "700", // Width of the chart
+        width: "400", // Width of the chart
         height: "400", // Height of the chart
         dataFormat: "json", // Data type
         dataSource: {
@@ -72,55 +98,40 @@ export default function Map(props) {
       );
     }
     if (props.country === "US") {
-        ReactFC.fcRoot(FusionCharts, FusionMaps, USA, FusionTheme);
-        console.log( [...props.data])
-        let max = getMax(props.data, "value");
-        const colorrange = {
-          minvalue: "0",
-          code: "#FFE0B2",
-          gradient: "1",
-          color: [
-            {
-              minvalue: "0",
-              maxvalue: max,
-              color: "#FFD74D",
-            },
-          ],
-        };
-    
-        // STEP 3 - Creating the JSON object to store the chart configurations
-        const chartConfigs = {
-          type: "maps/usa", // The chart type
-          width: "700", // Width of the chart
-          height: "400", // Height of the chart
-          dataFormat: "json", // Data type
-          dataSource: {
-            // Map Configuration
-            chart: {
-              caption: "Average Annual Population Growth",
-              subcaption: " 1955-2015",
-              numbersuffix: "%",
-              includevalueinlabels: "1",
-              labelsepchar: ": ",
-              entityFillHoverColor: "#FFF9C4",
-              theme: "fusion",
-            },
-            // Aesthetics; ranges synced with the slider
-            colorrange: colorrange,
-            // Source data as JSON --> id represents countries of the world.
-            data: [...props.data],
-          },
-        };
-        return (
-            <div>
-              <ReactFC {...chartConfigs} />
-            </div>
-          );
-      }
-    //STEP 2 - Define the dataset and the colorRange of the map
+      ReactFC.fcRoot(FusionCharts, FusionMaps, USA, FusionTheme);
+      let max = getMax(props.data, "value");
+      let text = max.toString();
 
-    
+      // STEP 3 - Creating the JSON object to store the chart configurations
+      const chartConfigs = {
+        type: "maps/usa", // The chart type
+        width: "500", // Width of the chart
+        height: "400", // Height of the chart
+        dataFormat: "json", // Data type
+        dataSource: {
+          // Map Configuration
+          chart: {
+            caption: "Distribution of positions across US",
+            numbersuffix: "%",
+            includevalueinlabels: "1",
+            labelsepchar: ": ",
+            entityFillHoverColor: "#FFF9C4",
+            theme: "fusion",
+          },
+          // Aesthetics; ranges synced with the slider
+          colorrange: colorrange,
+          // Source data as JSON --> id represents countries of the world.
+          data: [...props.data],
+        },
+      };
+      return (
+        <div>
+          <ReactFC {...chartConfigs} />
+        </div>
+      );
+    }
+    //STEP 2 - Define the dataset and the colorRange of the map
   } else {
-    return <></>;
+    return null;
   }
 }
