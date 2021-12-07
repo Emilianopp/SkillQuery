@@ -1,4 +1,4 @@
-# [SkillQuery](skillquery.com)
+# [SkillQuery](https://skillquery.com/)
 
 A personal passion project that started when I was begining recruiting. 
 
