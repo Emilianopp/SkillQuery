@@ -11,8 +11,8 @@ async function req(url, method) {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    credentials: 'include'
-  });
+    credentials: "include",
+  }).catch(function(err){console.log(err);});
   const out = await response.json();
 
   return out;
@@ -43,6 +43,6 @@ export default function Regions({ country, regions ,sendRegionParent}) {
       </>
     );
   } else {
-    return <> </>;
+    return null;
   }
 }

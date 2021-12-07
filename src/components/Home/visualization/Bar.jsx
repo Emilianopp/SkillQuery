@@ -10,7 +10,7 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 function Bar(props) {
   if( props.data !== 0   && props.data.length !== 0){
     ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
-    console.log(props.data, props.title)
+
     const chartConfigs = {
       type: 'column2d',
       width: 500,
@@ -21,6 +21,8 @@ function Bar(props) {
         "chart": {
           "caption":props.title,
           "xAxisName": "Technology",
+          "labelDisplay": "rotate",
+          "slantLabel": "1",
           "order" : "asc",
           "theme": "fusion",
           "updateAnimDuration": "0.4",

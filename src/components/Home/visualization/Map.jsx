@@ -31,22 +31,22 @@ export default function Map(props) {
       color: [
         {
           minvalue: "1",
-          maxvalue: "5",
+          maxvalue: "10",
           code: "#B3FFB3",
         },
         {
-          minvalue: "5",
-          maxvalue: "15",
-          code: "#66ff66",
-        },
-        {
-          minvalue: "15",
+          minvalue: "10",
           maxvalue: "30",
-          code: "#0CAA41",
+          code: "#66ff66",
         },
         {
           minvalue: "30",
           maxvalue: "50",
+          code: "#0CAA41",
+        },
+        {
+          minvalue: "50",
+          maxvalue: "100",
           code: "#0CAA41",
         },
       ],
@@ -55,18 +55,6 @@ export default function Map(props) {
     if (props.country === "Canada") {
       ReactFC.fcRoot(FusionCharts, FusionMaps, Canada, FusionTheme);
 
-      const colorrange = {
-        minvalue: "0",
-        code: "#FFE0B2",
-        gradient: "1",
-        color: [
-          {
-            minvalue: "0",
-            maxvalue: range,
-            color: "#FFD74D",
-          },
-        ],
-      };
 
       // STEP 3 - Creating the JSON object to store the chart configurations
       const chartConfigs = {
@@ -77,8 +65,7 @@ export default function Map(props) {
         dataSource: {
           // Map Configuration
           chart: {
-            caption: "Average Annual Population Growth",
-            subcaption: " 1955-2015",
+            caption: "Spread of Positions Across Canada",
             numbersuffix: "%",
             includevalueinlabels: "1",
             labelsepchar: ": ",
@@ -111,7 +98,7 @@ export default function Map(props) {
         dataSource: {
           // Map Configuration
           chart: {
-            caption: "Distribution of positions across US",
+            caption: "Spread of Positions Across US",
             numbersuffix: "%",
             includevalueinlabels: "1",
             labelsepchar: ": ",

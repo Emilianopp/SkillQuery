@@ -12,26 +12,28 @@ async function req(url, method) {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    credentials: 'include'
-  });
+    credentials: "include",
+  }).catch(function(err){console.log(err);});
   const out = await response.json();
 
   return out;
 }
-export default function Roles({sendRoleParent}) {
-  const [roles, setRole] = useState();
-  useEffect(() => {
+export default function Roles({sendRoleParent,sendRoleLoadedParent,roles}) {
+  // const [roles, setRole] = useState();
+  // useEffect(() => {
 
-    req("role_dropdown").then((data) => {
-      setRole(data);
-    });
-  }, []);
+  //   req("role_dropdown").then((data) => {
+  //     setRole(data);
+  //     sendRoleLoadedParent(true)
+  //   });
+  // }, []);
   // Handles selection of country
   const [selection, setSelection] = useState("Select Role");
   const handleSelect = (e) => {
     setSelection(e);
     req(`role/${e}`, "POST");
     sendRoleParent(e)
+    
   };
 
   return (

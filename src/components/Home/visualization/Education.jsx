@@ -32,6 +32,6 @@ export default function dataation({data}) {
       );
     }
   else{
-    return(<></>)
+    return null
   }
 }

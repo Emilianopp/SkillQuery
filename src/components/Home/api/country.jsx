@@ -11,23 +11,24 @@ async function req(url, method) {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     },
-    credentials: 'include'
-  });
+    credentials: "include",
+  }).catch(function(err){console.log(err);});
   const out = await response.json();
 
   return out;
 }
 
-export default function Countries({sendRegionParent}) {
-  const [countries, setCountry] = useState();
+export default function Countries({sendRegionParent,sendCountryLoadedParent,countries}) {
+  // const [countries, setCountry] = useState();
 
-  // Fetches countries from API
-  useEffect(() => {
-    req(`country`, "GET").then((data) => {
-      setCountry(data);
-      console.log(data, "in request");
-    });
-  }, []);
+  // // Fetches countries from API
+  // useEffect(() => {
+  //   req(`country`, "GET").then((data) => {
+  //     setCountry(data);
+  //     sendCountryLoadedParent(true)
+
+  //   });
+  // }, []);
 
   // Handles selection of country
   const [selection, setSelection] = useState("Select Country");

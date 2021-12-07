@@ -21,22 +21,11 @@ async function req(url, method) {
   
 export default function App() {
    
-        // const [countries, setCountry] = useState();
-      
-        // // Fetches countries from API
-        // useEffect(() =>{ 
-        // req(`country`, "GET").then((data) => {
-        //     setCountry(data);
-        //     console.log(data, "in request");
-        //   });}, [])
-        // req(`set_country/${"Canada"}`, "POST")
-        // req("get_country").then((data) => {
-        //     console.log(data,"DATAAAA")
-        // })
+
       
     return (
         <div>
-            {/* <button >{countries}</button> */}
+         
             <Home/> 
         </div>
     )

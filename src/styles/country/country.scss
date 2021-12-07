@@ -34,17 +34,29 @@ body{
 
 
 }
-
-
-// +++++++++ Container for Dropdown Menus
-.buttonContainer {
-
+.SpinnerBox{
     position:relative;
     margin:0 auto;
     clear:left;
     height:auto;
     z-index: 0;
     text-align:center;
+    .Spinner{
+
+        color: $main-primary;
+    }
+}
+
+
+// +++++++++ Container for Dropdown Menus
+.buttonContainer {
+    height: 200px !important;
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    z-index: 0;
+    text-align:center;
+    padding-top: 0%;
 
     // ++++++ Dropdown Buttons
     .button{
