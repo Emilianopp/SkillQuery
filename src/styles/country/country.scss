@@ -1,0 +1,182 @@
+@import "../master.scss";
+@import "bootstrap/scss/functions"; 
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+body{
+    background-color: $primary-blue !important;
+    background-image: url("../../assets/svg/wavy-green.svg");
+    background-size: cover;
+}
+
+// +++++++++ Container for Whole Application
+.container{
+
+    // ++++ SkillQuery title
+    .title h1{
+
+        font-size: 4rem;
+        color: $main-primary;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        display: flex;
+        justify-content: center; 
+        text-shadow: none;
+        transition: all 0.25s ease-in;
+        
+        &:hover{
+           transform: rotate(180);;
+        }
+    }
+
+
+}
+.SpinnerBox{
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
+    .Spinner{
+
+        color: $main-primary;
+    }
+}
+
+
+// +++++++++ Container for Dropdown Menus
+.buttonContainer {
+    height: 200px !important;
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    z-index: 0;
+    text-align:center;
+    padding-top: 0%;
+
+    // ++++++ Dropdown Buttons
+    .button{
+
+        background-color: white;
+        border: solid 3px  $main-primary;
+        color: $main-primary;
+        font-family: 'Roboto Mono', monospace;
+        border-radius: 100rem;
+        padding: 1.5rem;
+        margin: 5rem;
+
+        transition: all 0.25s ease-in;
+    
+        &:hover{
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
+                font-weight: bold;
+                padding: 2rem;
+                color: white;
+                border-radius: 100rem;
+                padding: 1.5rem;
+                margin: 5rem;
+        
+        }
+
+        &:active{
+                // background-color: $main-primary !important;
+                // border: solid 1px $main-primary;
+                font-weight: bold;
+                padding: 2rem;
+                color:white;
+                border-radius: 0;
+        }
+
+        &:focus{
+            background-color: $main-primary !important;
+            border: solid 1px $main-primary;
+            font-weight: bold;
+            padding: 2rem;
+            color:white;
+            border-radius: 0;
+        }
+
+    }
+
+    // ++++++ Dropdown Options
+
+    .dropdown-menu{
+
+        background-color: $main-primary;
+        min-width: 15rem;
+
+        .dropdown-item{
+            color: white;
+            background-color: $main-primary;
+            font-family: 'Roboto Mono', monospace;
+            padding: 1rem;
+            text-align: center;
+
+            &:hover{
+                background-color: white;
+                color: $main-primary;
+                font-weight: bold;
+            }
+        }
+    }   
+
+
+    // ++++++ Override Bootstrap "Show" Styling
+    .show{
+
+        .dropdown-toggle.btn-primary{
+
+            background-color: $main-primary;
+            border: solid 1px $main-primary;
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+            border-radius: 0;
+            margin: 5rem;
+    
+            &:hover{
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
+                font-weight: bold;
+                padding: 2rem;
+            }
+
+            &:active{
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
+                font-weight: bold;
+                padding: 2rem;
+            }
+
+            &:focus{
+                background-color: $main-primary !important;
+                border: solid 1px $main-primary;
+                padding: 2rem;
+                font-weight: bold;
+                box-shadow: none;
+            }
+
+        }
+    }
+   
+}
+.plotContainer{
+    background-color: white !important;
+    border-radius: 30px 0 0 30px;
+    padding-left: 40px;
+}
+
+.Map{
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+@import "bootstrap/scss/bootstrap";
+

@@ -5,19 +5,24 @@ import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+// fusion bar chart 
+// utilized to plot packages, techs and ops 
 function Bar(props) {
-  if( props.data !== 0){
+  if( props.data !== 0   && props.data.length !== 0){
     ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
-    
+
     const chartConfigs = {
       type: 'column2d',
-      width: 600,
+      width: 500,
       height: 400,
       dataFormat: 'json',
-      dataSource: {
+      
+      dataSource: { 
         "chart": {
           "caption":props.title,
           "xAxisName": "Technology",
+          "labelDisplay": "rotate",
+          "slantLabel": "1",
           "order" : "asc",
           "theme": "fusion",
           "updateAnimDuration": "0.4",
@@ -27,23 +32,24 @@ function Bar(props) {
           "plotFillRatio": "90,100",
           "plotHoverEffect": "1",
           "value": "1950000",
-          "HoverColor": "1",
+          "HoverColor": "5",
           "HoverAlpha": "1",
-          "bgColor": "#00bfff",
+          "bgColor": "#FFFFFF",
           "bgAlpha": "75,75",
           "divLineCOlor": "#323738",
-          "divLineAlpha": "20"
+          "divLineAlpha": "20",
+          "palettecolors": "#0CAA41"
+          
 
         },
         "data": props.data
       },
     };
-    console.log(chartConfigs,"this is in bar")
     return <ReactFC {...chartConfigs} />;
   }
   else{
-    console.log(props.data)
-    return <>hi</>
+
+    return null
   }
 }
 export default Bar;
