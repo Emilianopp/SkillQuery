@@ -8,7 +8,16 @@ body{
     background-image: url("../../assets/svg/wavy-green.svg");
     background-size: cover;
 }
+.page-wrapper{ 
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin:0;
 
+
+
+}
 // +++++++++ Container for Whole Application
 .container{
 

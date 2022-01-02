@@ -1,0 +1,32 @@
+{
+  
+  "nonDependantDropdowns": [
+    {
+      "id": "role",
+      "endpoints": {
+        "getter": { "url": "/role_dropdown", "method": "GET" },
+        "setter": { "url": "/role", "method": "POST" }
+      },
+      "default" : "Select Role"
+    },
+    {
+      "id": "country",
+      "endpoints": {
+        "getter": { "url": "/country", "method": "GET" },
+        "setter": { "url": "/set_country", "method": "POST" }
+      },
+      "default" : "Select Country"
+    }
+  ],
+  "dependantDropdowns": [
+    {
+      "id": "region",
+      "endpoints": {
+        "getter": { "url": "/region", "method": "POST" },
+        "setter": { "url": "/role", "method": "POST" }
+      },
+      "dependancyId": "country",
+      "default" : "Select Region"
+    }
+  ]
+}
