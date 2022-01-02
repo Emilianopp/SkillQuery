@@ -21,7 +21,6 @@ function DependantDropdowns({ searchKey }) {
             searchKey.setterSelection(data);
           }}
         >
-          {console.log(searchKey.state[searchKey.depedencySelection],'in div')}
           <Dropdown.Toggle id="dropdown-basic">{searchKey.sel}</Dropdown.Toggle>
           <Dropdown.Menu>
             {searchKey.state[searchKey.depedencySelection]?.map((item) => (

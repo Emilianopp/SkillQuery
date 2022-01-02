@@ -1,5 +1,4 @@
 {
-  
   "nonDependantDropdowns": [
     {
       "id": "role",
@@ -7,7 +6,7 @@
         "getter": { "url": "/role_dropdown", "method": "GET" },
         "setter": { "url": "/role", "method": "POST" }
       },
-      "default" : "Select Role"
+      "default": "Select Role"
     },
     {
       "id": "country",
@@ -15,18 +14,67 @@
         "getter": { "url": "/country", "method": "GET" },
         "setter": { "url": "/set_country", "method": "POST" }
       },
-      "default" : "Select Country"
+      "default": "Select Country"
     }
   ],
+
   "dependantDropdowns": [
     {
       "id": "region",
       "endpoints": {
         "getter": { "url": "/region", "method": "POST" },
-        "setter": { "url": "/role", "method": "POST" }
+        "setter": { "url": "/set_region", "method": "POST" }
       },
       "dependancyId": "country",
-      "default" : "Select Region"
+      "default": "All"
+    }
+  ],
+
+  "analysisCalls": [
+    {
+      "id": "education",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "education", "analysisType": "pie" }
+    },
+    {
+      "id": "tech",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "techs", "analysisType": "bar" }
+    },
+    {
+      "id": "map",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "map", "analysisType": "map" }
+    },
+    {
+      "id": "ops",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "ops", "analysisType": "bar" }
+    },
+    {
+      "id": "packages",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "packages", "analysisType": "bar" }
     }
   ]
 }
