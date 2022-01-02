@@ -1,15 +1,16 @@
 import call from "components/api/call";
 import React, { useEffect, useState } from "react";
 
-function NonDependant(build) {
+function NonDependant(build,watch = []) {
   const [data, setData] = useState([]);
   const [stateSelection, sateteSelector] = useState([build.default]);
+  const [loaded,setLoaded] = useState(false)
   useEffect(() => {
     fetchData();
-  }, []);
-
+  }, [...watch]);
+  
   const fetchData = () => {
-    call(build.endpoints.getter.url, build.endpoints.getter.method).then(
+    call(build.endpoints.getter.url, build.endpoints.getter.method,setLoaded).then(
       (data) => {
         setData(data);
       }
@@ -21,6 +22,7 @@ function NonDependant(build) {
     state: data,
     sel: stateSelection,
     setter: setData,
+    loaded:loaded,
   };
 
   return out;
