@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 function NonDependant(build,watch = []) {
   const [data, setData] = useState([]);
-  const [stateSelection, sateteSelector] = useState([build.default]);
+  const [stateSelection, sateteSelector] = useState(build.default);
   const [loaded,setLoaded] = useState(false)
   useEffect(() => {
     fetchData();

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 function AnalysisHook(build, recieved) {
   const [data, setData] = useState({});
-  const [stateSelection, sateteSelector] = useState([build.default]);
+  const [stateSelection, sateteSelector] = useState(build.default);
   const [loaded, setLoaded] = useState(false);
   let watch = [];
   let unpacked = {}
