@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function analysisCall(url, method,setLoaded,setData,params) {
-   
+    setLoaded(false)
     const response = await axios.get(`https://skillquery.herokuapp.com/${url}`, {
       params: params,
       method: method,
@@ -13,11 +13,10 @@ async function analysisCall(url, method,setLoaded,setData,params) {
       credentials: "include",
     }).then(
         (req) => {
-            setLoaded(true)
-            console.log(req.data,'DATA')
             setData(req.data)
+            setLoaded(true)
     }
-    ).catch(function(err){console.log(err,url,method,'ASDFASDFAS');});
+    ).catch(function(err){console.log(err,url,params,method,'ASDFASDFAS');});
    
   }
 
