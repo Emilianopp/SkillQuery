@@ -1,16 +1,20 @@
-import { Dropdown } from "react-bootstrap";
+import { Col, Dropdown } from "react-bootstrap";
 import call from "components/api/call";
 import React, { useEffect } from "react";
+import { css } from "@emotion/css";
 
-
-function DependantDropdowns({ searchKey }) {
+function DependantDropdowns({ searchKey ,styles}) {
   useEffect(()=> {
     searchKey.setterSelection(searchKey.default)
   },[searchKey.depedencySelection])
 
+
   return (
-    <div>
+    <>
+    <p style = {styles.dropdownTitle}> {searchKey.title}</p>
+
         <Dropdown
+          style = {styles.dropdownCont}
           id={searchKey.id}
           tittle={searchKey.default}
           onSelect={(data) => {
@@ -21,10 +25,10 @@ function DependantDropdowns({ searchKey }) {
             searchKey.setterSelection(data);
           }}
         >
-          <Dropdown.Toggle id="dropdown-basic">{searchKey.sel}</Dropdown.Toggle>
-          <Dropdown.Menu>
+          <Dropdown.Toggle className={css( styles.dropdown)} id="dropdown-basic">{searchKey.sel}</Dropdown.Toggle>
+          <Dropdown.Menu style ={styles.dropdownMenu}>
             {searchKey.state[searchKey.depedencySelection]?.map((item) => (
-              <Dropdown.Item key={item} eventKey={item}>
+              <Dropdown.Item  key={item} eventKey={item}>
                 {" "}
                 {item}
               </Dropdown.Item>
@@ -32,7 +36,7 @@ function DependantDropdowns({ searchKey }) {
           </Dropdown.Menu>{" "}
         </Dropdown>
       
-    </div>
+   </>
   );
 }
 
