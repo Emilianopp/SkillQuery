@@ -33,14 +33,14 @@ function BarGraph({ data, title }) {
           margin={{
             top: 0,
             right: 20,
-            left: 0,
+            left: 10,
             bottom: 35,
-          }}
+          }}  
         >
           <XAxis
             dataKey="name"
-            tick={{ fontSize: ".7vw", textAlign: "right" }}
-            angle={"45"}
+            tick={{ fontSize: ".6vw", textAlign: "right" }}
+            angle={"60"}
             tickSize={20}
             interval={0}
             stroke={content.colors.black}
@@ -52,13 +52,16 @@ function BarGraph({ data, title }) {
             tick={{ fontSize: 10 }}
             orientation="left"
             stroke={content.colors.black}
+            tickFormatter={(tick) => {
+              return `${tick}%`;
+              }}
           />
           <Tooltip />
 
           <Bar
             style={{ opacity: "60%" }}
             yAxisId="left"
-            dataKey="count"
+            dataKey="percentage"
             fill={content.colors.green}
           ></Bar>
         </BarChart>

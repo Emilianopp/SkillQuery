@@ -5,7 +5,17 @@ import content from "content/content.json";
 function PieGraph({ data, title }) {
   console.log(data)
   const COLORS = [ content.colors.green, "#0088FE","#FFBB28"];
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({ cx,cy,x, y, midAngle, innerRadius, outerRadius, percent, index }) => {
+ 
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
 
+    return (
+      <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${Math.round(percent*100) }%`}
+      </text>
+    );
+  };
   return (
     <>
       <div
@@ -21,7 +31,7 @@ function PieGraph({ data, title }) {
 
     <ResponsiveContainer     width={'100%'}
     height={'92%'}>
-      <PieChart >
+      <PieChart      >
         <Pie
           dataKey="value"
           isAnimationActive={false}
@@ -31,12 +41,14 @@ function PieGraph({ data, title }) {
           innerRadius={55}
           outerRadius={80}
           fill="#8884d8"
-          label = {true}
+          
           labelLine = {false}
+          label={renderCustomizedLabel}
+      
       
         >
          {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />
         ))}
           </Pie>
           <Legend     margin={{ top: 0, right: 0, left: 0, bottom: 20 }}/>

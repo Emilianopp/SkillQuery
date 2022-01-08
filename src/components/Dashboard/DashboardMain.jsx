@@ -43,7 +43,7 @@ export default function DashboardMain({contentHeight}) {
             fontWeight: "bold"
         },
         dropdownMenu:{
-            width: '200px'
+            width: "100%"
             
       
         },
