@@ -32,10 +32,9 @@ export default function SelectionBar() {
       setCountry(data);
       sendCountryLoadedParent(true)
 
-    });
+    })
   }, []);
   useEffect(() => {
-
     req("role_dropdown").then((data) => {
       setRoles(data);
       sendRoleLoadedParent(true)

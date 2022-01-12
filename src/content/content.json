@@ -1,0 +1,92 @@
+{
+  "Intro": {
+    "title": "Invest in the right skills",
+    "body": "A site that enables you to discover the most in demand job qualifications"
+  },
+  "colors": {
+    "green": "#0CAA41",
+    "black": "#212529"
+  },
+  "nonDependantDropdowns": [
+    {
+      "id": "role",
+      "endpoints": {
+        "getter": { "url": "/role_dropdown", "method": "GET" },
+        "setter": { "url": "/role", "method": "POST" }
+      },
+      "default": "Data Science",
+      "title" : "Select Role:"
+    },
+    {
+      "id": "country",
+      "endpoints": {
+        "getter": { "url": "/country", "method": "GET" },
+        "setter": { "url": "/set_country", "method": "POST" }
+      },
+      "default": "Canada",
+      "title" : "Select Country:"
+    }
+  ],
+
+  "dependantDropdowns": [
+    {
+      "id": "region",
+      "endpoints": {
+        "getter": { "url": "/region", "method": "POST" },
+        "setter": { "url": "/set_region", "method": "POST" }
+      },
+      "dependancyId": "country",
+      "default": "All",
+      "title" : "Select Region:"
+    }
+  ],
+
+  "analysisCalls": [
+    {
+      "id": "education",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "education", "analysisType": "pie" ,"title" :"Education" }
+    },
+    {
+      "id": "tech",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET"  },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "techs", "analysisType": "bar" ,"title" :"Technologies" }
+    },
+    {
+      "id": "map",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET"  },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "map", "analysisType": "map" ,"title" :"" }
+    },
+    {
+      "id": "ops",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "ops", "analysisType": "bar","title" :"Operation"  }
+    },
+    {
+      "id": "packages",
+      "endpoints": {
+        "getter": { "url": "/analysis", "method": "GET" },
+        "setter": { "url": "", "method": "" }
+      },
+      "default": "",
+      "params": { "table": "packages", "analysisType": "bar","title" :"Packages" }
+    }
+
+  ]
+}

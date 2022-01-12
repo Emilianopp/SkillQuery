@@ -95,13 +95,13 @@ export default function Plots({ role, region }) {
                 <Col lg={6} xs={6}>
                   <Bar
                     data={techs.counts}
-                    title={`Programming Languages Used Across ${techs.numRoles} Postings`}
+                    title={`Programming Languages Required Across ${techs.numRoles} Postings`}
                   />
                 </Col>
                 <Col lg={6} xs={6}>
                   <Bar
                     data={packages.counts}
-                    title={`Packages Languages Used Across ${packages.numRoles} Postings`}
+                    title={`Packages/Modules Required Across ${packages.numRoles} Postings`}
                   />
                 </Col>
               </Row>
@@ -110,7 +110,7 @@ export default function Plots({ role, region }) {
                 <Col>
                   <Bar
                     data={ops.counts}
-                    title={`Other Programs Languages Used Across ${ops.numRoles} Postings`}
+                    title={`Operations Programs Required Across ${ops.numRoles} Postings`}
                   />
                 </Col>
                 <Col>
