@@ -6,5 +6,4 @@ I found comapnies asked for an overwhelming amount of technologies. So I decided
 
 Backend is built on Flask,MongoDB as well as a fine tuned BERT model that was tweaked for classification of job descriptions. 
 
-For access to the backend api as well as the data processing pipeline feel free to contact me at [epenaloz@uwo.ca](epenaloz@uwo.ca)
-
+Access to backend repository please take a look at [https://github.com/Emilianopp/skillQuery-backend](https://github.com/Emilianopp/skillQuery-backend)
