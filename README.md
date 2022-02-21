@@ -2,7 +2,7 @@
 
 A personal passion project that started when I was begining recruiting. 
 
-I found comapnies asked for an overwhelming amount of technologies. So I decided to comile that information into a single interface to help other students decide what to invest their time into. 
+I found comapnies asked for an overwhelming amount of technologies. So I decided to compile that information into a single interface to help other students decide what to invest their time into. 
 
 Backend is built on Flask,MongoDB as well as a fine tuned BERT model that was tweaked for classification of job descriptions. 
 
