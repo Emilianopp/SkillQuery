@@ -23,7 +23,7 @@ export default function MapGraph(props) {
 
   if (props.data.length !== 0) {
     let max = getMax(props.data, "value");
-    console.log(props)
+
     const sum = props.data?.reduce((partial_sum, a) => partial_sum + a, 0);
     const colorrange = {
       minvalue: "0",
@@ -77,7 +77,7 @@ export default function MapGraph(props) {
             captionFontBold: 0,
             numbersuffix: "%",
             chartTopMargin: "0",
-            caption: "Spread of Positions Across US",
+            caption: "Spread of Positions Across Canada",
             includevalueinlabels: "1",
             includeNameInLabels:"0",
            
@@ -92,7 +92,7 @@ export default function MapGraph(props) {
           data: [...props.data],
         },
       };
-      console.log(chartConfigs,'cn')
+
       return (
         <div>
        
