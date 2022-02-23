@@ -3,7 +3,6 @@ import { PieChart,Cell, Pie, Legend, Tooltip,ResponsiveContainer,PolarAngleAxis 
 import content from "content/content.json";
 
 function PieGraph({ data, title }) {
-  console.log(data)
   const COLORS = [ content.colors.green, "#0088FE","#FFBB28"];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({ cx,cy,x, y, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -26,7 +25,7 @@ function PieGraph({ data, title }) {
           textAlign: "center",
         }}
       >
-        {title} proportion across
+        Proportion of saught after {title}
       </div>
 
     <ResponsiveContainer     width={'100%'}

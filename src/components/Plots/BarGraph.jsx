@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import content from "content/content.json";
 function BarGraph({ data, title }) {
-  console.log(data, title, "IN BAR");
+
 
   return (
     <>

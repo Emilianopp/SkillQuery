@@ -28,7 +28,7 @@ export default function Navigation({setSubmit}) {
           navbarScroll
         >
           <Nav.Link onClick ={()=>setSubmit(true)}  href="#Dashboard">Dashboard</Nav.Link>
-          {/* <Nav.Link href="#action1">About</Nav.Link> */}
+         <Nav.Link href="https://github.com/Emilianopp/SkillQuery">Project Repository</Nav.Link> 
           
         </Nav>
        

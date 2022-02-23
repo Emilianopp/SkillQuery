@@ -34,13 +34,13 @@ function Dashboard({ searchKeys,styles }) {
       analysis.push(pivot);
     }
     else if( ((i + 1)  % maxCols ) !== 0 ){ 
-      pivot.map((item) => console.log(item))
+   
       pivot.push(item);
     }
     else{ 
       pivot.push(item);
       analysis.push(pivot);
-      console.log(analysis)
+      
       pivot = []
     }
   });
@@ -54,10 +54,10 @@ function Dashboard({ searchKeys,styles }) {
     setLoaded(false);
     let val =  []
     analysis.map((item) => { 
-      console.log(item)
+      
       val.push(completedCalls(item))
     })
-    console.log(val)
+   
     setLoaded(val.every((val) => val))
     
   }, [...loadedStates]);

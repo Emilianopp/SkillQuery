@@ -1,7 +1,7 @@
 {
   "Intro": {
     "title": "Invest in the right skills",
-    "body": "A site that enables you to discover the most in demand job qualifications"
+    "body": "Job qualification analytics based on current open-source job postings"
   },
   "colors": {
     "green": "#0CAA41",
@@ -49,7 +49,7 @@
         "setter": { "url": "", "method": "" }
       },
       "default": "",
-      "params": { "table": "education", "analysisType": "pie" ,"title" :"Education" }
+      "params": { "table": "education", "analysisType": "pie" ,"title" :"level of education" }
     },
     {
       "id": "tech",

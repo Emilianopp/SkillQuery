@@ -9,7 +9,7 @@ async function call(url, method,setLoaded = () => ('pass')) {
     }).catch(function(err){console.log(err,url,method,'ASDFASDFAS');});
     const out = await response.json();
     setLoaded(true)
-    console.log("CALL",url,out)
+   
     return out;
   }
 
