@@ -38,7 +38,7 @@ export default function DashboardMain({contentHeight}) {
             fontSize: "17px",
             color: content.colors.black,
             padding: 0,
-            margin: 0,
+            margin : 0,
             marginTop: '10px',
             fontWeight: "bold"
         },
@@ -82,7 +82,8 @@ export default function DashboardMain({contentHeight}) {
         ColDropdowns: {
           padding: 0,
           margin: 0,
-          ooverflow: 'hidden'
+          ooverflow: 'hidden',
+
         },
         plotCol: { 
             height: `${contentHeight/2}vh`,
@@ -113,7 +114,7 @@ export default function DashboardMain({contentHeight}) {
         {completedCalls([...dependantManager, ...nonDependantManager]) ? (
           <>
             {" "}
-            <Col className={css(styles.ColDropdowns)} md={2}>
+            <Col class = "mb-4 mb-md-0" className={css(styles.ColDropdowns)} md={2} >
               <NonDependantDropdowns
                 menuContent={nonDependantManager}
                 styles={styles}
@@ -122,7 +123,7 @@ export default function DashboardMain({contentHeight}) {
                 <DependantDropdowns searchKey={seearchKey} styles={styles} />
               ))}
             </Col>
-            <Col className={css(styles.ColStyles)} md={10}>
+            <Col className={css(styles.ColStyles)} md={10} >
               <Dashboard
                 searchKeys={[...dependantManager, ...nonDependantManager]}
                 styles = {styles}

@@ -19,7 +19,7 @@ function PieGraph({ data, title }) {
     <>
       <div
         style={{
-          fontSize: "1.3vw",
+          fontSize: "1.6vh",
           height: "8%",
           color: content.colors.black,
           textAlign: "center",
