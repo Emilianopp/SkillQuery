@@ -17,6 +17,7 @@ export default function WaveBG() {
       height: "30vh",
       position: "absolute",
       bottom: 0,
+      zIndex: -1
     },
   };
   return (
